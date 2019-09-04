@@ -29,5 +29,6 @@ public class PopActivity extends Activity {
         params.y=-20;
 
         getWindow().setAttributes(params);
+        ///last change
     }
 }
