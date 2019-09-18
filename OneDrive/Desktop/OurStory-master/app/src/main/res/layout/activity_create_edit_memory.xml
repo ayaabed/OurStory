@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#2C3E50"
     android:orientation="vertical"
-    tools:context="org.tsofen.ourstory.CreateEditMemoryActivity">
+    tools:context="org.tsofen.ourstory.EditCreateMemory.CreateEditMemoryActivity">
 
     <ScrollView
         android:id="@+id/scrollView_cememory"
@@ -14,8 +14,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar_cememory">
+        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar_cememory"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout_cememory"
@@ -52,9 +54,9 @@
                 android:layout_marginEnd="88dp"
                 android:layout_marginRight="88dp"
                 android:background="@drawable/login_button"
+                android:enabled="true"
                 android:onClick="saveMemory"
                 android:text="@string/save"
-                android:enabled="false"
                 android:textColor="@android:color/background_light"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -67,46 +69,43 @@
 
             <EditText
                 android:id="@+id/memDescription_cememory"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/ic_memory_description_background"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="top|left"
+                android:inputType="textLongMessage|textMultiLine|textPersonName"
+                android:paddingLeft="5dp"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"
+                android:textColorHint="@color/colorWhite"
+                android:textCursorDrawable="@drawable/custom_curser"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4_cememory" />
+                app:layout_constraintTop_toBottomOf="@+id/AddDescriptionTV_cememory" />
 
             <EditText
                 android:id="@+id/memLocation_cememory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="12dp"
                 android:background="@drawable/ic_location_background"
+                android:fontFamily="@font/quicksand_bold"
                 android:inputType="textPersonName"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12_cememory" />
 
-            <TextView
-                android:id="@+id/textView8_cememory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:text="@string/this_was_at"
-                android:textColor="@android:color/background_light"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_cememory"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
 
             <TextView
                 android:id="@+id/textView14_cememory"
@@ -127,27 +126,33 @@
                 tools:layout_conversion_absoluteHeight="0dp"
                 tools:layout_conversion_absoluteWidth="0dp" />
 
-            <TextView
-                android:id="@+id/textView4_cememory"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/LinerForImage"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:text="@string/write_your_memory"
-                android:textColor="@android:color/background_light"
-                android:textSize="16sp"
-                android:textStyle="bold"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_videos_rv_cememory"
-                tools:layout_conversion_absoluteHeight="0dp"
-                tools:layout_conversion_absoluteWidth="0dp" />
+                app:layout_constraintTop_toBottomOf="@+id/AddPicTV_cememory">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/add_pictures_rv_cememory"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:foregroundGravity="center" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/textView_cememory"
+                android:id="@+id/AddPicTV_cememory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -166,21 +171,21 @@
                 tools:layout_conversion_absoluteWidth="0dp" />
 
             <TextView
-                android:id="@+id/textView3_cememory"
+                android:id="@+id/AddDescriptionTV_cememory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/quicksand_bold"
-                android:text="@string/add_video"
+                android:text="@string/write_your_memory"
                 android:textColor="@android:color/background_light"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_pictures_rv_cememory"
+                app:layout_constraintTop_toBottomOf="@+id/add_videos_rv_cememory"
                 tools:layout_conversion_absoluteHeight="0dp"
                 tools:layout_conversion_absoluteWidth="0dp" />
 
@@ -190,16 +195,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="24dp"
                 android:fontFamily="@font/quicksand_bold"
                 android:text="@string/location"
                 android:textColor="@android:color/background_light"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.077"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date_cememory"
+                app:layout_constraintTop_toBottomOf="@id/DateOfMemHandler"
                 tools:layout_conversion_absoluteHeight="0dp"
                 tools:layout_conversion_absoluteWidth="0dp" />
 
@@ -218,94 +222,131 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/memDescription_cememory"
+                app:layout_constraintTop_toBottomOf="@+id/error_cememory"
                 tools:layout_conversion_absoluteHeight="0dp"
                 tools:layout_conversion_absoluteWidth="0dp" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/date_cememory"
-                android:layout_width="328dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/edittext_legend_continuous"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8_cememory"
-                tools:layout_conversion_absoluteHeight="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:layout_conversion_absoluteWidth="0dp">
 
-                <EditText
-                    android:id="@+id/day_text_cememory"
-                    android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/DateOfMemHandler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constrainedHeight="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout_cememory"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/DateOfMemHandler">
+
+                    <TextView
+                        android:id="@+id/dateOfMem_cememory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="@string/this_was_at"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/relativeLayout_cememory"
+                        tools:layout_conversion_absoluteHeight="0dp"
+                        tools:layout_conversion_absoluteWidth="0dp" />
+
+                    <TextView
+                        android:id="@+id/showMemDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="4dp"
+                        android:calendarTextColor="@color/colorGrayHint"
+                        android:foregroundGravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dateOfMem_cememory">
+
+                    <CheckBox
+                        android:id="@+id/dayChckBx1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/colorError"
+                        android:text="Day Unknown"
+                        android:textColor="@color/colorGrayHint" />
+
+                    <CheckBox
+                        android:id="@+id/monthChckBx1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/colorError"
+                        android:text="Month Unknown"
+                        android:textColor="@color/colorGrayHint" />
+
+                    <CheckBox
+                        android:id="@+id/yearChckBx1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/colorError"
+                        android:text="year Unknown"
+                        android:textColor="@color/colorGrayHint" />
+                </LinearLayout>
+
+                <DatePicker
+                    android:id="@+id/memoryDatePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:calendarTextColor="@color/colorGrayHint"
+                    android:calendarViewShown="false"
+                    android:datePickerMode="spinner"
+                    android:minDate="01/01/1800"
+                    android:spinnersShown="true"
+                    android:startYear="1800"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+                <TextView
+                    android:id="@+id/error3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="#2c3e50"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:hint="@string/day"
-                    android:paddingLeft="5dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="@color/colorGrayHint"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:background="@color/transparent"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/colorError"
+                    android:textSize="@dimen/errorSize"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/memoryDatePicker"
+                    app:layout_constraintTop_toBottomOf="@+id/memoryDatePicker" />
 
-                <EditText
-                    android:id="@+id/year_text_cememory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="60dp"
-                    android:layout_marginLeft="60dp"
-                    android:background="@color/colorPrimaryDark"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:hint="@string/year"
-                    android:paddingLeft="5dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="@color/colorGrayHint"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/month_text_cememory"
-                    app:layout_constraintStart_toEndOf="@+id/month_text_cememory"
-                    app:layout_constraintTop_toTopOf="@+id/month_text_cememory"
-                    app:layout_constraintVertical_bias="1.0" />
 
-                <EditText
-                    android:id="@+id/month_text_cememory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="64dp"
-                    android:layout_marginLeft="64dp"
-                    android:background="@color/colorPrimaryDark"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:hint="@string/month"
-                    android:paddingLeft="5dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="@color/colorGrayHint"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/day_text_cememory"
-                    app:layout_constraintStart_toEndOf="@+id/day_text_cememory"
-                    app:layout_constraintTop_toTopOf="@+id/day_text_cememory"
-                    app:layout_constraintVertical_bias="0.0" />
+            </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/imageView3_cememory"
-                    android:layout_width="20dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:onClick="showDatePicker"
-                    app:layout_constraintBottom_toBottomOf="@+id/year_text_cememory"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.703"
-                    app:layout_constraintStart_toEndOf="@+id/year_text_cememory"
-                    app:layout_constraintTop_toTopOf="@+id/year_text_cememory"
-                    app:layout_constraintVertical_bias="1.0"
-                    app:srcCompat="@drawable/ic_calendar" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/relativeLayout_cememory"
@@ -324,12 +365,51 @@
                 tools:layout_conversion_absoluteHeight="0dp"
                 tools:layout_conversion_absoluteWidth="0dp">
 
+                <ImageView
+                    android:id="@+id/smiley_back3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:src="@drawable/smiley_background_choice"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/smiley_back2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/smiley_back2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:src="@drawable/smiley_background_choice"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/smiley_back1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/smiley_back1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:src="@drawable/smiley_background_choice"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <ImageButton
                     android:id="@+id/smilebtn_cememory"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="#212F3D"
-                    android:drawableBottom="@drawable/ic_emoji_smile"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#00212F3D"
                     android:scaleType="centerInside"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -338,11 +418,13 @@
 
                 <ImageButton
                     android:id="@+id/sadbtn_cememory"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:background="#212F3D"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#00212F3D"
                     android:scaleType="centerInside"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@id/smilebtn_cememory"
@@ -351,66 +433,29 @@
                     app:srcCompat="@drawable/ic_emoji_sad" />
 
                 <ImageButton
-                    android:id="@+id/happybtn_cememory"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginLeft="8dp"
-                    android:background="#212F3D"
-                    android:drawableBottom="@drawable/happy"
-                    app:srcCompat="@drawable/happy"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintLeft_toRightOf="@id/sadbtn_cememory"
-                    app:layout_constraintStart_toEndOf="@+id/sadbtn_cememory"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageButton
                     android:id="@+id/lovebtn_cememory"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginLeft="8dp"
-                    android:background="#212F3D"
-                    android:drawableBottom="@drawable/ic_emoji_love"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#00212F3D"
                     android:scaleType="centerInside"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/happybtn_cememory"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/sadbtn_cememory"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_emoji_love" />
 
-                <ImageButton
-                    android:id="@+id/happy1btn_cememory"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginLeft="8dp"
-                    android:background="#1C2733"
-                    android:drawableBottom="@drawable/happy1"
-                    app:srcCompat="@drawable/happy1"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintLeft_toRightOf="@id/lovebtn_cememory"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageButton
-                    android:id="@+id/untitledbtn_cememory"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:background="#212F3D"
-                    android:drawableBottom="@drawable/ic_emoji_blessed"
-                    android:scaleType="centerInside"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintLeft_toRightOf="@id/happy1btn_cememory"
-                    app:layout_constraintStart_toEndOf="@+id/happy1btn_cememory"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_emoji_blessed" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/tagsLayout_cememory"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
@@ -422,33 +467,60 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textView14_cememory">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.recyclerview.widget.RecyclerView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/add_pictures_rv_cememory"
+            <TextView
+                android:id="@+id/AddVidTV_cememory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/add_video"
+                android:textColor="@android:color/background_light"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/LinerForImage"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <TextView
+                android:id="@+id/error_cememory"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
+
+                android:background="@color/transparent"
+                android:ems="10"
+                android:fontFamily="@font/quicksand_bold"
+                android:textColor="@color/colorError"
+                android:textSize="16sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_cememory" />
+                app:layout_constraintTop_toBottomOf="@+id/memDescription_cememory" />
+            app:layout_constraintTop_toBottomOf="@+id/AddVidTV_cememory" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/add_videos_rv_cememory"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="100dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3_cememory" />
+                app:layout_constraintTop_toBottomOf="@+id/AddVidTV_cememory" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -475,7 +547,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/ic_arrow_back"
-            android:onClick="closeActivity"
+            android:onClick="onClick"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView2_cememory"
             app:layout_constraintHorizontal_bias="0.128"
@@ -501,7 +573,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Add A Memory"
+            android:text="Add Memory"
             android:textColor="@color/colorWhite"
             android:textSize="21sp"
             app:fontFamily="@font/quicksand_bold"
